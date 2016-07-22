@@ -1,20 +1,20 @@
 <f:layout name="Blog" />
 
 <f:section name="MainContent">
-	<h2>Create new post</h2>
+	<h2><f:translate id="post.action.new.title" /></h2>
 	<f:render partial="FormErrors" arguments="{for: 'newPost'}" />
 	<f:form action="create" objectName="newPost" arguments="{blog: blog}">
 		<f:form.hidden property="blog" value="{blog}" />
 
-		<label for="post-author">Author</label>
+		<label for="post-author"><f:translate id="post.author" /></label>
 		<f:form.textfield property="author" id="post-author" />
 
-		<label for="post-subject">Subject</label>
+		<label for="post-subject"><f:translate id="post.subject" /></label>
 		<f:form.textfield property="subject" id="post-subject" />
 
-		<label for="post-content">Content</label>
+		<label for="post-content"><f:translate id="post.content" /></label>
 		<f:form.textarea property="content" rows="5" cols="30" id="post-content" />
 
-		<f:form.submit name="submit" value="Publish Post" />
+		<f:form.submit name="submit" value="{f:translate(id: 'post.action.create')}" />
 	</f:form>
 </f:section>

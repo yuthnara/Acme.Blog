@@ -2,7 +2,12 @@
 <html>
 <head lang="en">
 	<meta charset="utf-8">
-	<title>{blog.title} - Flow Blog Example</title>
+	<title>
+		<f:if condition="{blog.title}">
+			<f:then>{blog.title} - </f:then>
+		</f:if>
+		<f:translate id="page.title" />
+	</title>
 	<link rel="stylesheet" href="../../Public/Styles/App.css" type="text/css" />
 </head>
 <body>
@@ -11,7 +16,7 @@
 		<f:if condition="{blog}">
 			<h1>{blog.title}</h1>
 			<p class="description">{blog.description -> f:format.crop(maxCharacters: 80)}</p>
-			<f:link.action action="index" controller="Blog">&loarr; Back</f:link.action>
+			<f:link.action action="index" controller="Blog"><f:translate id="action.back" /></f:link.action>
 		</f:if>
 	</header>
 
@@ -21,8 +26,8 @@
 	</div>
 
 	<footer>
-		<a href="http://flow.typo3.org">
-			Powered by Flow
+		<a href="{f:translate(id: 'page.by.url')}">
+			<f:translate id="page.by" />
 		</a>
 	</footer>
 

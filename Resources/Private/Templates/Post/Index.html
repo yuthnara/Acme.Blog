@@ -16,10 +16,10 @@
 			</ul>
 		</f:then>
 		<f:else>
-			<p>No posts created yet.</p>
+			<p><f:translate id="post.action.no_record" /></p>
 		</f:else>
 	</f:if>
 	<p>
-		<f:link.action action="new" arguments="{blog: blog}">Create a new post</f:link.action>
+		<f:link.action action="new" arguments="{blog: blog}"><f:translate id="post.action.new" /></f:link.action>
 	</p>
 </f:section>

@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" source-language="en" target-language="fr" datatype="plaintext">
+		<body>
+			<!-- Blog -->
+			<trans-unit id="blog.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="blog.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="blog.action.new.title">
+				<source>Create new blog</source>
+			</trans-unit>
+			<trans-unit id="blog.action.create">
+				<source>Publish Blog</source>
+			</trans-unit>
+			<trans-unit id="blog.action.new">
+				<source>Create a new blog</source>
+			</trans-unit>
+			<trans-unit id="blog.action.edit">
+				<source>Edit blog "{0}"</source>
+			</trans-unit>
+			<trans-unit id="blog.action.update">
+				<source>Update Blog</source>
+			</trans-unit>
+			<trans-unit id="blog.action.no_record">
+				<source>No blog created yet.</source>
+			</trans-unit>
+
+			<!-- Post -->
+			<trans-unit id="post.author">
+				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="post.subject">
+				<source>Subject</source>
+			</trans-unit>
+			<trans-unit id="post.content">
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="post.action.new.title">
+				<source>Create new post</source>
+			</trans-unit>
+			<trans-unit id="post.action.create">
+				<source>Publish Post</source>
+			</trans-unit>
+			<trans-unit id="post.action.new">
+				<source>Create a new post</source>
+			</trans-unit>
+			<trans-unit id="post.action.edit">
+				<source>Edit post "{0}"</source>
+			</trans-unit>
+			<trans-unit id="post.action.update">
+				<source>Update Post</source>
+			</trans-unit>
+			<trans-unit id="post.action.no_record">
+				<source>No post created yet.</source>
+			</trans-unit>
+			<trans-unit id="post.action.previous">
+				<source>⇽ previous post</source>
+			</trans-unit>
+			<trans-unit id="post.action.next">
+				<source>next post ⇾</source>
+			</trans-unit>
+			<trans-unit id="post.published">
+				<source>Published on {0} by {1}</source>
+			</trans-unit>
+
+			<!-- Other -->
+			<trans-unit id="page.title">
+				<source>Flow Blog Example</source>
+			</trans-unit>
+			<trans-unit id="page.by">
+				<source>Powered by Flow</source>
+			</trans-unit>
+			<trans-unit id="page.by.url">
+				<source>http://flow.typo3.org</source>
+			</trans-unit>
+			<trans-unit id="action.back">
+				<source>⇽ Back</source>
+			</trans-unit>
+			<trans-unit id="action.edit">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="action.delete">
+				<source>Delete</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

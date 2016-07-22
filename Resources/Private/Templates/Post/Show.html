@@ -5,10 +5,10 @@
 		<nav>
 			<ul>
 				<f:if condition="{previousPost}">
-					<li><f:link.action action="show" arguments="{post: previousPost, blog: blog}" rel="prev">&loarr; previous post</f:link.action></li>
+					<li><f:link.action action="show" arguments="{post: previousPost, blog: blog}" rel="prev"><f:translate id="post.action.previous" /></f:link.action></li>
 				</f:if>
 				<f:if condition="{nextPost}">
-					<li class="next"><f:link.action action="show" arguments="{post: nextPost: blog: blog}" rel="next">next post &roarr;</f:link.action></li>
+					<li class="next"><f:link.action action="show" arguments="{post: nextPost: blog: blog}" rel="next"><f:translate id="post.action.next" /></f:link.action></li>
 				</f:if>
 			</ul>
 		</nav>
@@ -19,5 +19,5 @@
 		<p>{post.content -> f:format.nl2br()}</p>
 		<f:render partial="PostMetaData" arguments="{post: post, blog: blog}"/>
 	</div>
-	<f:link.action action="index" arguments="{blog: blog}">&loarr; Back</f:link.action>
+	<f:link.action action="index" arguments="{blog: blog}"><f:translate id="action.back" /></f:link.action>
 </f:section>

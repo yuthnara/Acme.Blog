@@ -2,13 +2,13 @@
 <html>
 <head lang="en">
 	<meta charset="utf-8">
-	<title>Flow Blog Example</title>
+	<title><f:translate id="page.title" /></title>
 	<link rel="stylesheet" href="../../Public/Styles/App.css" type="text/css" />
 </head>
 <body>
 
 	<header>
-		<h1>Flow Blog Example</h1>
+		<h1><f:translate id="page.title" /></h1>
 	</header>
 
 	<div id="content">
@@ -17,8 +17,8 @@
 	</div>
 
 	<footer>
-		<a href="http://flow.typo3.org">
-			Powered by Flow
+		<a href="{f:translate(id: 'page.by.url')}">
+			{f:translate(id: 'page.by')}
 		</a>
 	</footer>
 
