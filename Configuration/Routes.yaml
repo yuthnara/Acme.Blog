@@ -1,0 +1,79 @@
+#                                                                        #
+# Routes configuration for the Blog package                              #
+#                                                                        #
+#
+# In order to activate those routes, add the following snippet to the main
+# Routes.yaml file of your distribution:
+#
+
+-
+  name: 'Blog index'
+  uriPattern: 'blogs'
+  defaults:
+    '@package': 'Acme.Blog'
+    '@controller': 'Blog'
+    '@action': 'index'
+
+-
+  name: 'Blog actions'
+  uriPattern: 'blogs/{@action}'
+  defaults:
+    '@controller': 'Blog'
+
+-
+  name: 'Single blog actions'
+  uriPattern: 'blogs/{blog}/{@action}'
+  defaults:
+    '@controller': 'Blog'
+  routeParts:
+    blog:
+      objectType: 'Acme\Blog\Domain\Model\Blog'
+      uriPattern: '{title}'
+
+-
+  name: 'Post index'
+  uriPattern: 'blog/{blog}/posts'
+  defaults:
+    '@controller': 'Post'
+    '@action': 'index'
+  routeParts:
+    blog:
+      objectType: 'Acme\Blog\Domain\Model\Blog'
+      uriPattern: '{title}'
+
+-
+  name: 'Post actions'
+  uriPattern: 'blog/{blog}/posts/{@action}'
+  defaults:
+    '@controller': 'Post'
+  routeParts:
+    blog:
+      objectType: 'Acme\Blog\Domain\Model\Blog'
+      uriPattern: '{title}'
+
+-
+  name: 'Single post actions'
+  uriPattern: 'blog/{blog}/posts/{post}'
+  defaults:
+    '@controller': 'Post'
+    '@action': 'show'
+  routeParts:
+    blog:
+      objectType: 'Acme\Blog\Domain\Model\Blog'
+      uriPattern: '{title}'
+    post:
+      objectType: 'Acme\Blog\Domain\Model\Post'
+      uriPattern: '{date:Y}/{date:m}/{date:d}/{subject}'
+
+-
+  name: 'Single post actions'
+  uriPattern: 'blog/{blog}/posts/{post}/{@action}'
+  defaults:
+    '@controller': 'Post'
+  routeParts:
+    blog:
+      objectType: 'Acme\Blog\Domain\Model\Blog'
+      uriPattern: '{title}'
+    post:
+      objectType: 'Acme\Blog\Domain\Model\Post'
+      uriPattern: '{date:Y}/{date:m}/{date:d}/{subject}'

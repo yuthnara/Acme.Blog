@@ -1,0 +1,12 @@
+<f:layout name="Blog" />
+
+<f:section name="MainContent">
+	<div class="post">
+		<f:render partial="BlogActions" arguments="{blog: blog}"/>
+		<h2>
+			<f:link.action action="show" arguments="{blog: blog}">{blog.title}</f:link.action>
+		</h2>
+		<p>{blog.description -> f:format.nl2br()}</p>
+	</div>
+	<f:link.action action="index">&loarr; Back</f:link.action>
+</f:section>

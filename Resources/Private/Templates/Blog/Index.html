@@ -1,0 +1,24 @@
+<f:layout name="Default" />
+
+<f:section name="MainContent">
+	<f:if condition="{blogs}">
+		<f:then>
+			<ul>
+				<f:for each="{blogs}" as="blog">
+					<li class="post">
+						<f:render partial="BlogActions" arguments="{blog: blog}"/>
+						<h2>
+							<f:link.action action="index" controller="Post" arguments="{blog: blog}">{blog.title}</f:link.action>
+						</h2>
+					</li>
+				</f:for>
+			</ul>
+		</f:then>
+		<f:else>
+			<p>No blog created yet.</p>
+		</f:else>
+	</f:if>
+	<p>
+		<f:link.action action="new">Create a new blog</f:link.action>
+	</p>
+</f:section>

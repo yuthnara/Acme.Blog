@@ -1,0 +1,10 @@
+<ul class="actions">
+	<li>
+		<f:link.action action="edit" arguments="{post: post, blog: blog}">Edit</f:link.action>
+	</li>
+	<li>
+		<f:form action="delete" arguments="{post: post, blog: blog}">
+			<f:form.submit name="delete" value="Delete" />
+		</f:form>
+	</li>
+</ul>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<title>{blog.title} - Flow Blog Example</title>
+	<link rel="stylesheet" href="../../Public/Styles/App.css" type="text/css" />
+</head>
+<body>
+
+	<header>
+		<f:if condition="{blog}">
+			<h1>{blog.title}</h1>
+			<p class="description">{blog.description -> f:format.crop(maxCharacters: 80)}</p>
+			<f:link.action action="index" controller="Blog">&loarr; Back</f:link.action>
+		</f:if>
+	</header>
+
+	<div id="content">
+		<f:flashMessages class="flashmessages" />
+		<f:render section="MainContent" />
+	</div>
+
+	<footer>
+		<a href="http://flow.typo3.org">
+			Powered by Flow
+		</a>
+	</footer>
+
+</body>
+</html>

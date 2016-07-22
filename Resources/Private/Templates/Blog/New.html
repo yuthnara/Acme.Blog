@@ -1,0 +1,16 @@
+<f:layout name="Blog" />
+
+<f:section name="MainContent">
+	<h2>Create new blog</h2>
+	<f:render partial="FormErrors" arguments="{for: 'newBlog'}" />
+	<f:form action="create" objectName="newBlog">
+
+		<label for="blog-title">Title</label>
+		<f:form.textfield property="title" id="blog-title" />
+
+		<label for="blog-description">Description</label>
+		<f:form.textarea property="description" rows="5" cols="30" id="blog-description" />
+
+		<f:form.submit name="submit" value="Publish Blog" />
+	</f:form>
+</f:section>

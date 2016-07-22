@@ -1,0 +1,15 @@
+<f:layout name="Blog" />
+
+<f:section name="MainContent">
+	<h2>Edit blog "{blog.subject}"</h2>
+	<f:render partial="FormErrors" arguments="{for: 'blog'}" />
+	<f:form action="update" object="{blog}" objectName="blog">
+		<label for="blog-title">Title</label>
+		<f:form.textfield property="title" id="blog-title" />
+
+		<label for="blog-description">Description</label>
+		<f:form.textarea property="description" rows="5" cols="30" id="blog-description" />
+
+		<f:form.submit name="submit" value="Update Blog" />
+	</f:form>
+</f:section>
