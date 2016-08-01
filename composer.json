@@ -1,5 +1,5 @@
 {
-    "name": "yuthnara/acme.blog",
+    "name": "yuthnara/blog",
     "type": "typo3-flow-package",
     "description": "Blog example",
     "authors": [
