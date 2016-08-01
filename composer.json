@@ -1,5 +1,5 @@
 {
-    "name": "yuth/blog",
+    "name": "acme/blog",
     "type": "typo3-flow-package",
     "description": "Blog example",
     "authors": [
