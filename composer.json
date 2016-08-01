@@ -10,5 +10,10 @@
     ],
     "require": {
         "typo3/flow": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Acme\\Blog": "Classes"
+        }
     }
 }
