@@ -1,0 +1,11 @@
+{
+    "name": "rayuth/acme.blog",
+    "description": "Blog example",
+    "authors": [
+        {
+            "name": "Rayuth You",
+            "email": "rayuth@web-essentials.asia"
+        }
+    ],
+    "require": {}
+}
