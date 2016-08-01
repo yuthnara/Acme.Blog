@@ -1,5 +1,6 @@
 {
     "name": "yuthnara/acme.blog",
+    "type": "typo3-flow-package",
     "description": "Blog example",
     "authors": [
         {
@@ -7,5 +8,7 @@
             "email": "rayuth@web-essentials.asia"
         }
     ],
-    "require": {}
+    "require": {
+        "typo3/flow": "*"
+    }
 }
