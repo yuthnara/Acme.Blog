@@ -1,3 +1,4 @@
+{namespace vh = Acme\Blog\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="MainContent">
@@ -8,7 +9,10 @@
 					<li class="post">
 						<f:render partial="BlogActions" arguments="{blog: blog}"/>
 						<h2>
-							<f:link.action action="index" controller="Post" arguments="{blog: blog}">{blog.title}</f:link.action>
+							<vh:if condition="{blog.description}" or="{blog.posts -> f:count()} > 0">
+								<f:then><f:link.action action="index" controller="Post" arguments="{blog: blog}">{blog.title}</f:link.action></f:then>
+								<f:else>{blog.title}</f:else>
+							</vh:if>
 						</h2>
 					</li>
 				</f:for>
