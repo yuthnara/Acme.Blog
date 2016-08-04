@@ -2,6 +2,14 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file original="" source-language="en" target-language="fr" datatype="plaintext">
 		<body>
+			<!-- Package -->
+			<trans-unit id="package.blog">
+				<source>Acme.Blog</source>
+			</trans-unit>
+			<trans-unit id="package.blog.description">
+				<source>Blog example</source>
+			</trans-unit>
+
 			<!-- Blog -->
 			<trans-unit id="blog.title">
 				<source>Title</source>
