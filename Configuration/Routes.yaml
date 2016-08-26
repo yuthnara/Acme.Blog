@@ -52,7 +52,7 @@
       uriPattern: '{title}'
 
 -
-  name: 'Single post actions'
+  name: 'Single post'
   uriPattern: 'blog/{blog}/posts/{post}'
   defaults:
     '@controller': 'Post'
