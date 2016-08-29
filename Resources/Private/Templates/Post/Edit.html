@@ -1,18 +1,32 @@
-<f:layout name="Blog" />
+<f:layout name="Default" />
+
+<f:section name="Title"><f:translate id="blog.action.edit" arguments="{0: '{post.subject}'}" /></f:section>
 
 <f:section name="MainContent">
-	<h2><f:translate id="blog.action.edit" arguments="{0: '{post.subject}'}" /></h2>
 	<f:render partial="FormErrors" arguments="{for: 'post'}" />
-	<f:form action="update" object="{post}" objectName="post" arguments="{blog: blog}">
-		<label for="post-author"><f:translate id="post.author" /></label>
-		<f:form.textfield property="author" id="post-author" />
+	<div class="row">
+		<f:form action="update" object="{post}" objectName="post" arguments="{blog: blog}">
 
-		<label for="post-subject"><f:translate id="post.subject" /></label>
-		<f:form.textfield property="subject" id="post-subject" />
+			<div class="form-group">
+				<label for="post-author"><f:translate id="post.author" /></label>
+				<f:form.textfield property="author" id="post-author" class="form-control" />
+			</div>
 
-		<label for="post-content"><f:translate id="post.content" /></label>
-		<f:form.textarea property="content" rows="5" cols="30" id="post-content" />
+			<div class="form-group">
+				<label for="post-subject"><f:translate id="post.subject" /></label>
+				<f:form.textfield property="subject" id="post-subject" class="form-control" />
+			</div>
 
-		<f:form.submit name="submit" value="{f:translate(id: 'post.action.update')}" />
-	</f:form>
+			<div class="form-group">
+				<label for="post-content"><f:translate id="post.content" /></label>
+				<f:form.textarea property="content" rows="5" cols="30" id="post-content" class="form-control" />
+			</div>
+
+			<f:link.action action="index" arguments="{blog: blog}">
+				<span class="glyphicon glyphicon-backward"></span>
+				<f:translate id="action.back" />
+			</f:link.action>
+			<f:form.submit name="submit" value="{f:translate(id: 'post.action.update')}" class="btn btn-primary pull-right" />
+		</f:form>
+	</div>
 </f:section>

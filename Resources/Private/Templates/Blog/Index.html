@@ -1,28 +1,50 @@
 {namespace vh = Acme\Blog\ViewHelpers}
 <f:layout name="Default" />
 
+<f:section name="Title"><f:translate id="package.blog.description" /></f:section>
+
 <f:section name="MainContent">
-	<f:if condition="{blogs}">
-		<f:then>
-			<ul>
-				<f:for each="{blogs}" as="blog">
-					<li class="post">
-						<f:render partial="BlogActions" arguments="{blog: blog}"/>
-						<h2>
-							<vh:if condition="{blog.description}" or="{blog.posts -> f:count()} > 0">
-								<f:then><f:link.action action="index" controller="Post" arguments="{blog: blog}">{blog.title}</f:link.action></f:then>
-								<f:else>{blog.title}</f:else>
-							</vh:if>
-						</h2>
-					</li>
-				</f:for>
-			</ul>
-		</f:then>
-		<f:else>
-			<p><f:translate id="blog.action.no_record" /></p>
-		</f:else>
-	</f:if>
-	<p>
-		<f:link.action action="new"><f:translate id="blog.action.new" /></f:link.action>
-	</p>
+	<div class="row">
+		<p class="list-group">
+			<f:link.action action="index" controller="Standard" package="TYPO3.Welcome">
+				<span class="glyphicon glyphicon-backward"></span>
+				<f:translate id="action.back" />
+			</f:link.action>
+			<f:link.action action="new" class="btn btn-primary pull-right">
+				<span class="glyphicon glyphicon-plus"></span>
+				<f:translate id="blog.action.new" />
+			</f:link.action>
+		</p>
+	</div>
+	<div class="row">
+		<f:if condition="{blogs}">
+			<f:then>
+				<table class="table table-striped">
+					<f:for each="{blogs}" as="blog">
+						<tr>
+							<td>
+								<vh:if condition="{blog.description}" or="{blog.posts -> f:count()} > 0">
+									<f:then><f:link.action action="index" controller="Post" arguments="{blog: blog}">{blog.title}</f:link.action></f:then>
+									<f:else>{blog.title}</f:else>
+								</vh:if>
+							</td>
+							<td class="text-right">
+								<f:link.action action="edit" arguments="{blog: blog}" class="btn btn-warning">
+									<span class="glyphicon glyphicon-edit"></span>
+									<f:translate id="action.edit" />
+								</f:link.action>
+								<f:form action="delete" arguments="{blog: blog}" class="pull-right">
+									<span class="glyphicon"></span>
+									<f:form.submit name="delete" value="{f:translate(id: 'action.delete')}" class="btn btn-danger"/>
+								</f:form>
+							</td>
+						</tr>
+					</f:for>
+				</table>
+			</f:then>
+			<f:else>
+				<p><f:translate id="blog.action.no_record" /></p>
+			</f:else>
+		</f:if>
+	</div>
 </f:section>

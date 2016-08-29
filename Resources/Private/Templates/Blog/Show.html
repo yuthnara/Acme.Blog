@@ -1,7 +1,9 @@
-<f:layout name="Blog" />
+<f:layout name="Default" />
+
+<f:section name="Title"><f:translate id="blog" /></f:section>
 
 <f:section name="MainContent">
-	<div class="post">
+	<div class="row">
 		<f:render partial="BlogActions" arguments="{blog: blog}"/>
 		<h2>
 			<f:link.action action="show" arguments="{blog: blog}">{blog.title}</f:link.action>

@@ -1,25 +1,47 @@
-<f:layout name="Blog" />
+<f:layout name="Default" />
+
+<f:section name="Title"><f:translate id="post.action.list" /></f:section>
 
 <f:section name="MainContent">
-	<f:if condition="{blog.posts}">
-		<f:then>
-			<ul>
-				<f:for each="{blog.posts}" as="post">
-					<li class="post">
-						<f:render partial="PostActions" arguments="{post: post, blog: blog}"/>
-						<h2>
-							<f:link.action action="show" arguments="{post: post, blog: blog}">{post.subject}</f:link.action>
-						</h2>
-						<f:render partial="PostMetaData" arguments="{post: post, blog: blog}"/>
-					</li>
-				</f:for>
-			</ul>
-		</f:then>
-		<f:else>
-			<p><f:translate id="post.action.no_record" /></p>
-		</f:else>
-	</f:if>
-	<p>
-		<f:link.action action="new" arguments="{blog: blog}"><f:translate id="post.action.new" /></f:link.action>
-	</p>
+	<div class="row">
+		<p class="list-group">
+			<f:link.action action="index" controller="Blog">
+				<span class="glyphicon glyphicon-backward"></span>
+				<f:translate id="action.back" />
+			</f:link.action>
+			<f:link.action action="new" arguments="{blog: blog}" class="btn btn-primary pull-right">
+				<span class="glyphicon glyphicon-plus"></span>
+				<f:translate id="post.action.new" />
+			</f:link.action>
+		</p>
+	</div>
+	<div class="row">
+		<f:if condition="{blog.posts}">
+			<f:then>
+				<table class="table table-striped">
+					<f:for each="{blog.posts}" as="post">
+						<tr>
+							<td>
+								<f:link.action action="show" arguments="{post: post, blog: blog}">{post.subject}</f:link.action>
+								<f:render partial="PostMetaData" arguments="{post: post, blog: blog}"/>
+							</td>
+							<td class="text-right">
+								<f:link.action action="edit" arguments="{post: post, blog: blog}" class="btn btn-warning">
+									<span class="glyphicon glyphicon-edit"></span>
+									<f:translate id="action.edit" />
+								</f:link.action>
+								<f:form action="delete" arguments="{post: post, blog: blog}" class="pull-right">
+									<span class="glyphicon"></span>
+									<f:form.submit name="delete" value="{f:translate(id: 'action.delete')}" class="btn btn-danger" />
+								</f:form>
+							</td>
+						</tr>
+					</f:for>
+				</table>
+			</f:then>
+			<f:else>
+				<p><f:translate id="post.action.no_record" /></p>
+			</f:else>
+		</f:if>
+	</div>
 </f:section>

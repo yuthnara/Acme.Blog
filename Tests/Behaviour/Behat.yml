@@ -1,0 +1,76 @@
+default:
+  autoload:
+    '': %paths.base%/Features/Bootstrap
+  formatters:
+    pretty: true
+    junit:
+      output_path: ./build/logs
+    html:
+      output_path: ./build/logs
+  extensions:
+    Behat\MinkExtension:
+      files_path: features/Resources
+      show_cmd: 'open %s'
+      selenium2:
+        browser: chrome
+        wd_host: http://10.10.10.120:4444/wd/hub
+      base_url: http://www.test.local.flow.wehost.asia:8080
+    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+      name: html
+      renderer: Twig,Behat2
+      file_name: uat-report
+      print_args: true
+      print_outp: true
+      loop_break: true
+  suites:
+    default:
+      paths: &featurePaths
+        - '%paths.base%/Features'
+      contexts: &contexts
+        - FeatureContext
+        - WE\Testing\Behat\Context\MailHogContext:
+            mailhogUrl: 'http://mail:8025'
+        - WE\Testing\Behat\Context\XmlContext
+        - WE\Testing\Behat\Context\ApplicationContext:
+            fixturePath: 'Application/Acme.Blog/Tests/Behaviour/Fixtures'
+        - WE\Testing\Behat\Context\BaseContext
+        - WE\Testing\Behat\Context\ResponsiveContext
+      filters:
+        tags: ~@skip
+    SmokeSuite:
+      paths:
+        - '%paths.base%/SmokeTests'
+      contexts:
+        - FeatureContext
+        - WE\Testing\Behat\Context\XmlContext
+        - WE\Testing\Behat\Context\BaseContext
+        - WE\Testing\Behat\Context\ResponsiveContext
+      filters:
+        tags: ~@skip
+
+
+chrome:
+  extensions:
+    Behat\MinkExtension:
+      default_session: selenium2
+      selenium2:
+        wd_host: http://dockerhost:4444/wd/hub
+
+latest:
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://www.test.latest.flow.wehost.asia
+  gherkin:
+    cache: /tmp/latest-001-001/behat_gherkin_cache
+  testers:
+    rerun_cache: /tmp/latest-001-001/behat_rerun_cache
+
+demo:
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://www.test.demo.flow.wehost.asia
+
+live:
+  extensions:
+    Behat\MinkExtension:
+      base_url: 

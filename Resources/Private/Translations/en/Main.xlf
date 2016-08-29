@@ -85,7 +85,7 @@
 				<source>http://flow.typo3.org</source>
 			</trans-unit>
 			<trans-unit id="action.back">
-				<source>⇽ Back</source>
+				<source>Back</source>
 			</trans-unit>
 			<trans-unit id="action.edit">
 				<source>Edit</source>

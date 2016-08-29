@@ -1,7 +1,9 @@
-<f:layout name="Blog" />
+<f:layout name="Default" />
+
+<f:section name="Title"><f:translate id="blog" /></f:section>
 
 <f:section name="MainContent">
-	<div class="post">
+	<div class="row">
 		<nav>
 			<ul>
 				<f:if condition="{previousPost}">
@@ -12,12 +14,24 @@
 				</f:if>
 			</ul>
 		</nav>
-		<f:render partial="PostActions" arguments="{post: post, blog: blog}"/>
+		<f:link.action action="edit" arguments="{post: post, blog: blog}" class="btn btn-warning">
+			<span class="glyphicon glyphicon-edit"></span>
+			<f:translate id="action.edit" />
+		</f:link.action>
+		<f:form action="delete" arguments="{post: post, blog: blog}" class="pull-right">
+			<span class="glyphicon"></span>
+			<f:form.submit name="delete" value="{f:translate(id: 'action.delete')}" class="btn btn-danger" />
+		</f:form>
 		<h2>
 			<f:link.action action="show" arguments="{post: post, blog: blog}">{post.subject}</f:link.action>
 		</h2>
 		<p>{post.content -> f:format.nl2br()}</p>
 		<f:render partial="PostMetaData" arguments="{post: post, blog: blog}"/>
 	</div>
-	<f:link.action action="index" arguments="{blog: blog}"><f:translate id="action.back" /></f:link.action>
+	<div class="row">
+		<f:link.action action="index" arguments="{blog: blog}">
+			<span class="glyphicon glyphicon-backward"></span>
+			<f:translate id="action.back" />
+		</f:link.action>
+	</div>
 </f:section>

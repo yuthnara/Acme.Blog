@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-	<meta charset="utf-8">
-	<title><f:translate id="page.title" /></title>
-	<link rel="stylesheet" href="../../Public/Styles/App.css" type="text/css" />
-</head>
-<body>
+	<head>
+		<meta charset="utf-8">
+		<title><f:render section="Title" /></title>
+		<link href="{f:uri.resource(path: '3.3/css/bootstrap.min.css', package: 'TYPO3.Twitter.Bootstrap')}" media="screen" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="{f:uri.resource(path: '3.3/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
+		<link rel="stylesheet" type="text/css" href="{f:uri.resource(path: 'Styles/App.css', package: 'Acme.Blog')}">
+		<f:base />
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="row">
+					<h1><f:render section="Title" /></h1>
+				</div>
+			</div>
+		</header>
 
-	<header>
-		<h1><f:translate id="page.title" /></h1>
-		<f:link.action action="index" controller="Standard" package="TYPO3.Welcome"><f:translate id="action.back" /></f:link.action>
-	</header>
+		<div class="container">
+			<f:render partial="FlashMessages" />
+			<f:render section="MainContent" />
+		</div>
 
-	<div id="content">
-		<f:flashMessages class="flashmessages" />
-		<f:render section="MainContent" />
-	</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<p>
+						<f:link.external uri="{f:translate(id: 'page.by.url')}" target="_blank">{f:translate(id: 'page.by')}</f:link.external>
+					</p>
+				</div>
+			</div>
+		</footer>
 
-	<footer>
-		<a href="{f:translate(id: 'page.by.url')}">
-			{f:translate(id: 'page.by')}
-		</a>
-	</footer>
-
-</body>
+	</body>
 </html>
