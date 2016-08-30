@@ -24,7 +24,7 @@
 				<source>Publish Blog</source>
 			</trans-unit>
 			<trans-unit id="blog.action.new">
-				<source>Create a new blog</source>
+				<source>New blog</source>
 			</trans-unit>
 			<trans-unit id="blog.action.edit">
 				<source>Edit blog "{0}"</source>
@@ -49,11 +49,14 @@
 			<trans-unit id="post.action.new.title">
 				<source>Create new post</source>
 			</trans-unit>
+			<trans-unit id="post.action.list">
+				<source>Posts</source>
+			</trans-unit>
 			<trans-unit id="post.action.create">
 				<source>Publish Post</source>
 			</trans-unit>
 			<trans-unit id="post.action.new">
-				<source>Create a new post</source>
+				<source>New post</source>
 			</trans-unit>
 			<trans-unit id="post.action.edit">
 				<source>Edit post "{0}"</source>
@@ -63,12 +66,6 @@
 			</trans-unit>
 			<trans-unit id="post.action.no_record">
 				<source>No post created yet.</source>
-			</trans-unit>
-			<trans-unit id="post.action.previous">
-				<source>⇽ previous post</source>
-			</trans-unit>
-			<trans-unit id="post.action.next">
-				<source>next post ⇾</source>
 			</trans-unit>
 			<trans-unit id="post.published">
 				<source>Published on {0} by {1}</source>
@@ -92,6 +89,12 @@
 			</trans-unit>
 			<trans-unit id="action.delete">
 				<source>Delete</source>
+			</trans-unit>
+			<trans-unit id="action.previous">
+				<source>Previous</source>
+			</trans-unit>
+			<trans-unit id="action.next">
+				<source>Next</source>
 			</trans-unit>
 		</body>
 	</file>

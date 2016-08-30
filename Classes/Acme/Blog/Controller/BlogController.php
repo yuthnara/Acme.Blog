@@ -93,6 +93,8 @@ class BlogController extends ActionController {
 	 * Updates a blog
 	 *
 	 * @param Blog $blog
+	 * @Flow\Validate(argumentName="blog", type="UniqueEntity", options={"identityProperties"={"title"}})
+	 * @Flow\Validate(argumentName="blog", type="Acme.Blog:Equals", options={"propertyOne"="description", "propertyTwo"="title"})
 	 * @return void
 	 */
 	public function updateAction(Blog $blog) {

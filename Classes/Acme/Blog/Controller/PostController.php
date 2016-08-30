@@ -56,7 +56,6 @@ class PostController extends ActionController {
 	public function showAction(Post $post) {
 		$this->view->assignMultiple([
 			'post' => $post,
-			'blog' => $post->getBlog(),
 			'nextPost' => $this->postRepository->findNext($post),
 			'previousPost' => $this->postRepository->findPrevious($post),
 		]);
@@ -93,10 +92,7 @@ class PostController extends ActionController {
 	 * @return void
 	 */
 	public function editAction(Post $post) {
-		$this->view->assignMultiple([
-			'post' => $post,
-			'blog' => $post->getBlog()
-		]);
+		$this->view->assign('post', $post);
 	}
 
 	/**

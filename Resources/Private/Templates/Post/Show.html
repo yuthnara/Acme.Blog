@@ -1,37 +1,41 @@
 <f:layout name="Default" />
 
-<f:section name="Title"><f:translate id="blog" /></f:section>
+<f:section name="Title"><f:translate id="post" /></f:section>
 
 <f:section name="MainContent">
 	<div class="row">
-		<nav>
-			<ul>
-				<f:if condition="{previousPost}">
-					<li><f:link.action action="show" arguments="{post: previousPost, blog: blog}" rel="prev"><f:translate id="post.action.previous" /></f:link.action></li>
-				</f:if>
-				<f:if condition="{nextPost}">
-					<li class="next"><f:link.action action="show" arguments="{post: nextPost: blog: blog}" rel="next"><f:translate id="post.action.next" /></f:link.action></li>
-				</f:if>
-			</ul>
-		</nav>
-		<f:link.action action="edit" arguments="{post: post, blog: blog}" class="btn btn-warning">
-			<span class="glyphicon glyphicon-edit"></span>
-			<f:translate id="action.edit" />
+		<p class="list-group">
+			<f:if condition="{previousPost}">
+				<f:link.action action="show" arguments="{post: previousPost, blog: post.blog}" rel="prev" class="btn btn-default">
+					<span class="glyphicon glyphicon-backward"></span>
+					<f:translate id="action.previous" />
+				</f:link.action>
+			</f:if>
+			<f:if condition="{nextPost}">
+				<f:link.action action="show" arguments="{post: nextPost: blog: post.blog}" rel="next" class="btn btn-default pull-right">
+					<f:translate id="action.next" />
+					<span class="glyphicon glyphicon-forward"></span>
+				</f:link.action>
+			</f:if>
+		</p>
+		<p class="lead">
+			{post.subject}
+		</p>
+		<p>{post.content -> f:format.nl2br()}</p>
+		<f:render partial="PostMetaData" arguments="{post: post, blog: post.blog}"/>
+	</div>
+	<div class="row">
+		<f:link.action action="index" arguments="{blog: post.blog}">
+			<span class="glyphicon glyphicon-backward"></span>
+			<f:translate id="action.back" />
 		</f:link.action>
-		<f:form action="delete" arguments="{post: post, blog: blog}" class="pull-right">
+		<f:form action="delete" arguments="{post: post, blog: post.blog}" class="pull-right">
 			<span class="glyphicon"></span>
 			<f:form.submit name="delete" value="{f:translate(id: 'action.delete')}" class="btn btn-danger" />
 		</f:form>
-		<h2>
-			<f:link.action action="show" arguments="{post: post, blog: blog}">{post.subject}</f:link.action>
-		</h2>
-		<p>{post.content -> f:format.nl2br()}</p>
-		<f:render partial="PostMetaData" arguments="{post: post, blog: blog}"/>
-	</div>
-	<div class="row">
-		<f:link.action action="index" arguments="{blog: blog}">
-			<span class="glyphicon glyphicon-backward"></span>
-			<f:translate id="action.back" />
+		<f:link.action action="edit" arguments="{post: post, blog: post.blog}" class="btn btn-warning pull-right">
+			<span class="glyphicon glyphicon-edit"></span>
+			<f:translate id="action.edit" />
 		</f:link.action>
 	</div>
 </f:section>

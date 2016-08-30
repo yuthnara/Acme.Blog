@@ -3,9 +3,8 @@
 <f:section name="Title"><f:translate id="blog.action.edit" arguments="{0: '{post.subject}'}" /></f:section>
 
 <f:section name="MainContent">
-	<f:render partial="FormErrors" arguments="{for: 'post'}" />
 	<div class="row">
-		<f:form action="update" object="{post}" objectName="post" arguments="{blog: blog}">
+		<f:form action="update" object="{post}" objectName="post" arguments="{blog: post.blog}">
 
 			<div class="form-group">
 				<label for="post-author"><f:translate id="post.author" /></label>
@@ -22,7 +21,7 @@
 				<f:form.textarea property="content" rows="5" cols="30" id="post-content" class="form-control" />
 			</div>
 
-			<f:link.action action="index" arguments="{blog: blog}">
+			<f:link.action action="index" arguments="{blog: post.blog}">
 				<span class="glyphicon glyphicon-backward"></span>
 				<f:translate id="action.back" />
 			</f:link.action>

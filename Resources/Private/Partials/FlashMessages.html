@@ -16,8 +16,25 @@
 
 <f:section name="flashMessage">
 	<div class="row alert {class} flash-message">
-		<f:for each="{flashMessages}" as="flashMessage">
-			<p>{flashMessage}</p>
-		</f:for>
+		<f:form.validationResults>
+			<f:if condition="{validationResults.flattenedErrors}">
+				<f:then>
+					<f:for each="{validationResults.flattenedErrors}" key="propertyName" as="errors">
+						<p>
+							<ul>
+								<f:for each="{errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</p>
+					</f:for>
+				</f:then>
+				<f:else>
+					<f:for each="{flashMessages}" as="flashMessage">
+						<p>{flashMessage}</p>
+					</f:for>
+				</f:else>
+			</f:if>
+		</f:form.validationResults>
 	</div>
 </f:section>
