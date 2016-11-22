@@ -65,7 +65,7 @@ class EqualsValidator extends AbstractValidator {
 			}
 		}
 
-		if (! is_string($propertyOneName) || ! is_string($propertyTwoName)) {
+		if (!is_string($propertyOneName) || !is_string($propertyTwoName)) {
 			throw new InvalidValidationOptionsException('The option "property" must be a string.', 1470131314);
 		}
 
